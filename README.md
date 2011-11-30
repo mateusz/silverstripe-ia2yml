@@ -1,6 +1,6 @@
 # Information Architecture to YML converter
 
-This script grabs an IA and coverts it to YML, ready to load usign silverstripe-testdata module.
+This script grabs an IA and coverts it to YML, ready to rapidly load it to your pre-prod using silverstripe-testdata module.
 
 ## Requirements
 
@@ -30,7 +30,6 @@ Output:
 	Page:
 		Aboutus1:
 			Title: "About us"
-	Page:
 		Missionstatement2:
 			Title: "Mission statement"
 			Parent: =>Page.Aboutus1
@@ -42,11 +41,11 @@ Output:
 		Laszlo4:
 			Title: "Laszlo"
 			Parent: =>StaffHolder.Crew3
-	StaffPage:
 		Ivan5:
 			Title: "Ivan"
 			Parent: =>StaffHolder.Crew3
 	UserDefinedForm:
 		Contactus6:
 			Title: "Contact us"
+
 

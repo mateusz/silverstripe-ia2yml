@@ -65,12 +65,13 @@ class Stack {
  */
 $stack = new Stack();
 $line = 0;
+$results = array();
+
 while($ialine = fgets($iafile)) {
 	$line++;
 
 	// Empty line
 	if (trim($ialine)=='') {
-		echo "\n";
 		continue;
 	}
 
@@ -101,13 +102,19 @@ while($ialine = fgets($iafile)) {
 	}
 
 	// Convert to yml
-	echo "$element->type:\n";
-	echo "\t$element->handle:\n";
-	echo "\t\tTitle: \"$element->title\"\n";
+	if (!isset($results[$element->type])) $results[$element->type] = '';
+
+	$results[$element->type] .= "\t$element->handle:\n";
+	$results[$element->type] .= "\t\tTitle: \"$element->title\"\n";
 	if ($parent = $stack->peek()) {
-		echo "\t\tParent: =>$parent->type.$parent->handle\n";
+		$results[$element->type] .= "\t\tParent: =>$parent->type.$parent->handle\n";
 	}
 
 	// Pushing
 	$stack->push($element);
+}
+
+foreach ($results as $type=>$content) {
+	echo "$type:\n";
+	echo $content;
 }
