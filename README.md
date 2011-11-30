@@ -10,9 +10,9 @@ This script grabs an IA and coverts it to YML, ready to rapidly load it to your 
 ## IA file format
 
 - indent with \t to highlight parent-child relationships
-- include <<PageType>> within the line to set the page type (the << and >> will be trimmed). Otherwise it will default to "Page".
+- optional: include page type within << and >> to set the page type (otherwise it will default to "Page").
 
-Example input (.ia file):
+Example input (for example mysite.ia file):
 
 	About us
 		Mission statement
@@ -23,9 +23,9 @@ Example input (.ia file):
 
 Run:
 
-	php ia2yml.php | less
+	php ia2yml.php mysite.ia > mysite/testdata/ia.yml
 
-Output:
+Output then is:
 
 	Page:
 		Aboutus1:
@@ -48,4 +48,6 @@ Output:
 		Contactus6:
 			Title: "Contact us"
 
+And if you are using testdata, you can load it by visiting:
 
+	<your site root>/dev/data/load/ia

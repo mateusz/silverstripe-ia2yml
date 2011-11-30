@@ -27,7 +27,7 @@ class Element {
 		// Extract type, if present
 		if (preg_match("/<<.*>>/", $title, $match)) {
 			$title = preg_replace("/<<.*>>/", '', $title);
-			$this->type = trim($match[0], '<>');
+			$this->type = trim(trim($match[0], '<>'));
 		}
 		else {
 			$this->type = 'Page';
